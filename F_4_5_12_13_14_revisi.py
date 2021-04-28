@@ -353,7 +353,7 @@ def obtain_array_tanggal_pengembalian_gadget(array):
         date.append(array[i][2])
     return(date)
 
-# Fungsi yang mencetak riwayat pengambilan suatu consumable
+# Fungsi yang mencetak riwayat pengembalian suatu gadget
 def cetak_history_pengembalian(gadget_history, indeks_mulai, indeks_akhir):
     print()
     for i in range(indeks_mulai, indeks_akhir):
@@ -365,11 +365,11 @@ def cetak_history_pengembalian(gadget_history, indeks_mulai, indeks_akhir):
 # prosedur riwayatkembali
 def riwayakembali(gadget_return_history):
     if gadget_return_history == []:
-        print("Tidak ada riwayat pengambilan Consumable")
+        print("Tidak ada riwayat pengembalian Gadget")
     else:
         gadget_return_history = sort_tanggal(obtain_array_tanggal_pengembalian_gadget(gadget_return_history), gadget_return_history)
         if len(gadget_return_history) <= 5:
-            cetak_history_pengembalian(gadget_return_history, 0, len(consumable_history))
+            cetak_history_pengembalian(gadget_return_history, 0, len(gadget_return_history))
         else:
             cetak_history_pengembalian(gadget_return_history, 0, 5)
             cetaklagi = input("Ingin mencetak beberapa data lagi? Y/N :")
@@ -377,10 +377,10 @@ def riwayakembali(gadget_return_history):
                 print("Input salah!")
                 cetaklagi = input("Ingin mencetak beberapa data lagi? Y/N :")
             if cetaklagi in "Yy":
-                if len(consumable_history) <= 10:
-                    cetak_history_pengambilan(consumable_history, 5, len(consumable_history))
+                if len(gadget_return_history) <= 10:
+                    cetak_history_pengembalian(gadget_return_history, 5, len(gadget_return_history))
                 else:
-                    cetak_history_pengambilan(consumable_history, 5, 10)
+                    cetak_history_pengembalian(gadget_return_history, 5, 10)
 
 # >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
@@ -421,10 +421,10 @@ def program_utama():
         masihMau = True
         while masihMau:
             riwayakembali(gadget_return_history)
-            masih = input("Masih ingin melihat histori pengambilan consumable? Y/N :")
+            masih = input("Masih ingin melihat histori pengembalian gadget? Y/N :")
             while masih not in "YyNn":
                 print("Input salah! Input kembali!")
-                masih = input("Masih ingin melihat histori pengambilan consumable? Y/N :")
+                masih = input("Masih ingin melihat histori pengembalian gadget? Y/N :")
             if masih in "Nn":
                 masihMau = False
     print("Makasih bro")
