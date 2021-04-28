@@ -160,7 +160,7 @@ def pengembalian_gadget():
         found = False
 
         idx1 = 0 # inisiasi
-        while (found == False) and (idx1 < len(cpy_data_gadget)):
+        while (found == False) and (idx1 < len(cpy_data_gborrow)):
             if (cpy_data_gborrow[idx1][ID] == id):
                 found = True
                 indeks = idx1
